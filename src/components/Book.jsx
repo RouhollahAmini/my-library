@@ -1,9 +1,10 @@
-import { useParams } from "react-router";
-import { getBook } from "../data/data";
+import { useParams, useNavigate, useLocation } from "react-router";
+import { getBook, deleteBook } from "../data/data";
 
 const Book = () => {
     const params = useParams();
-
+    const navigate = useNavigate();
+    const location = useLocation();
     const book = getBook(parseInt(params.bookId));
 
     if (book) {
@@ -26,6 +27,11 @@ const Book = () => {
                         تاریخ انتشار کتاب :
                         <span className="font-medium text-lg"> {book.due} </span>
                     </p>
+                    <button
+                    onClick={() => {deleteBook(book.number); navigate('/books' + location.search);}}
+                    className="bg-red-500 text-sm text-white p-2 mt-2 w-full border-none outline-none rounded-lg">
+                        حذف کتاب
+                    </button>
                 </div>
             </div>
         )
