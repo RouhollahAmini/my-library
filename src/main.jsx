@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')).render(
                     </Route>
 
                     <Route path='*' element={
-                        <p className='m-auto'>
+                        <p className='text-center'>
                             مسیر مسدود است. لطفا برگردید.
                             <span className='text-3xl'>⛔</span>
                         </p>
